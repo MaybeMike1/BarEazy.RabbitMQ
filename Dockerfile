@@ -1,5 +1,5 @@
 # Use the official RabbitMQ base image
-FROM rabbitmq:latest
+FROM masstransit/rabbitmq
 
 # Set the desired username and password (replace 'your-username' and 'your-password' with your own values)
 ENV RABBITMQ_DEFAULT_USER=your-username
