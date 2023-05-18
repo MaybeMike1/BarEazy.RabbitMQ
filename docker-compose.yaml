@@ -1,0 +1,17 @@
+version: '3'
+services:
+  rabbitmq:
+    image: masstransit/rabbitmq
+    ports:
+      - '5672:5672'  # RabbitMQ port
+      - '15672:15672'  # RabbitMQ management UI port
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    networks:
+      - mynetwork
+
+volumes:
+  rabbitmq_data:
+
+networks:
+  mynetwork:
