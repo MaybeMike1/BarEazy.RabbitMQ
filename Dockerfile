@@ -1,12 +1,15 @@
-# Use the official RabbitMQ base image
 FROM masstransit/rabbitmq
-
-# Set the desired username and password (replace 'your-username' and 'your-password' with your own values)
-ENV RABBITMQ_DEFAULT_USER=your-username
-ENV RABBITMQ_DEFAULT_PASS=your-password
 
 # Expose the necessary ports
 EXPOSE 5672 15672
 
-# Start RabbitMQ server
-CMD ["rabbitmq-server"]
+# Create a volume for RabbitMQ data
+VOLUME ["/var/lib/rabbitmq"]
+
+# Define the network
+# Note: The network is automatically created when running containers in Docker Compose
+# You don't need to explicitly define the network in the Dockerfile
+# It's included here for completeness
+# If you're not using Docker Compose, you can remove the following line
+# and manually create the network before running the container
+NETWORK mynetwork
